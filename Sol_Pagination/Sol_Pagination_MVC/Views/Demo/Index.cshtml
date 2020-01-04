@@ -1,0 +1,10 @@
+﻿@using Sol_Pagination_MVC.Components
+@model Sol_Pagination_MVC.Lib.PagedResult<UserModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@await  Html.PartialAsync("~/Views/Demo/pv/_UserTablesView.cshtml",Model)
+

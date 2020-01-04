@@ -1,0 +1,50 @@
+﻿@model Sol_Pagination_MVC.Lib.PagedResultBase
+@{
+    var urlTemplate = Url.Action() + "?page={0}";
+    var request = ViewContext.HttpContext.Request;
+    foreach (var key in request.Query.Keys)
+    {
+        if (key == "page")
+        {
+            continue;
+        }
+
+        urlTemplate += "&" + key + "=" + request.Query[key];
+    }
+
+    var startIndex = Math.Max(Model.CurrentPage - 5, 1);
+    var finishIndex = Math.Min(Model.CurrentPage + 5, Model.PageCount);
+}
+
+<div class="row">
+    <div class="col-md-8 col-sm-8 items-info">
+        Items @Model.FirstRowOnPage to @Model.LastRowOnPage of @Model.RowCount total
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-8">
+        @if (Model.PageCount > 1)
+        {
+        <nav>
+            <ul class="pagination">
+                <li class="page-item"><a href="@urlTemplate.Replace("{0}", "1")" class="page-link">&laquo;</a></li>
+
+                @for (var count = startIndex; count <= finishIndex; count++)
+                {
+                    @if (count == Model.CurrentPage)
+                    {
+
+                        <li class="page-item"><span class="page-link">@count</span></li>
+                    }
+                    else
+                    {
+
+                        <li class="page-item"><a href="@urlTemplate.Replace("{0}", count.ToString())" class="page-link">@count</a></li>
+                    }
+                }
+                <li class="page-item"><a href="@urlTemplate.Replace("{0}", Model.PageCount.ToString())" class="page-link">&raquo;</a></li>
+            </ul>
+        </nav>
+        }
+    </div>
+</div>

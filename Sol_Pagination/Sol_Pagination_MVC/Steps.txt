@@ -1,0 +1,30 @@
+﻿https://www.codingame.com/playgrounds/5368/building-pager-component-for-asp-net-core
+
+#Step 1 : 
+Create a User Model
+
+#Step 2:
+Add Data in Model
+
+#Step 3:
+Create Pager Model
+	3.1 Create PagedResult Base Class
+	3.2 Create PagedResult class
+
+#Step 4:
+Create Linq Extention for Pagination
+	4.1 Create linqExtension class in Extension Folder
+
+#Step 5:
+Create View Component of Pager
+	5.1 : Create Pager ViewComponent Class in Components folder
+	5.2 : Create a Pager Razor View Component in shared folder. (Note : Create a Razor View Page)
+
+#Step 6:
+Create a Demo Controller and new Index Action.
+Add View based on Index.
+
+On Index Page paint html.
+
+
+
